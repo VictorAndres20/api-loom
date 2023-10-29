@@ -48,3 +48,7 @@ insert into ks.error_detail(cod, name, type)
 values('8.', 'Otro', 'MECHA');
 insert into ks.error_detail(cod, name, type)
 values('B_1.', 'Cambio', 'BOXES');
+insert into ks.error_detail(cod, name, type)
+values('WA_1.', 'default', 'WARP');
+insert into ks.error_detail(cod, name, type)
+values('WE_1.', 'default', 'WEFT');
