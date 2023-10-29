@@ -9,19 +9,10 @@ import { AuthDTO } from 'src/api/auth/entity/auth.dto';
 import { Response } from 'express';
 
 @Controller('users')
+@UseGuards(AuthGuard('jwt'))
 export class UserController extends BasicRestController<User, string, UserDTO>{
 
     constructor(protected service: UserBusiness){super();}
-
-    @Post('login')
-    async login(@Res() res: Response, @Body() dto: UserDTO): Promise<void> {
-        try{
-            let data = await this.service.login(dto);
-            res.status(HttpStatus.OK).json(new HttpResponse<AuthDTO>().setData(data).build(true));
-        } catch(err){
-            res.status(HttpStatus.INTERNAL_SERVER_ERROR).json(new HttpResponse<AuthDTO>().setError(err.message).build(false));
-        }
-    }
 
 }
 
