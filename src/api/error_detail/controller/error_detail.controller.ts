@@ -7,6 +7,7 @@ import { ErrorDetailDTO } from '../entity/error_detail.dto';
 import { ErrorDetailService } from '../service/error_detail.service';
 
 @Controller('error-detail')
+@UseGuards(AuthGuard('jwt'))
 export class ErrorDetailController extends BasicRestController<ErrorDetail, string, ErrorDetailDTO>{
 
     constructor(protected service: ErrorDetailService){super();}

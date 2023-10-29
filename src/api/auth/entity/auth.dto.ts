@@ -6,6 +6,6 @@ export class AuthDTO {
     password: string
     root: Number;
     active: Number;
-    token: string
-
+    token: string;
+    rol: string;
 }

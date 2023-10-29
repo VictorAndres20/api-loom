@@ -12,7 +12,7 @@ import { ErrorDetailController } from './controller/error_detail.controller';
         ErrorDetailController,
     ],
     providers: [
-        ErrorDetailService,
+        ErrorDetailService,        
     ],
     exports: [
         ErrorDetailService,

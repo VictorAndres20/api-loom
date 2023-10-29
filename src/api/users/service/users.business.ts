@@ -36,6 +36,7 @@ export class UserBusiness extends UserService{
         auth.uuid = user.uuid;
         auth.login = user.login;
         auth.active = user.state;
+        auth.rol = user.type?.cod;
         auth.token = this.authService.generateAccessToken(user.uuid);
         return auth;
     }
