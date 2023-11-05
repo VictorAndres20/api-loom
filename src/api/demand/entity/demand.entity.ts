@@ -50,12 +50,8 @@ export class Demand{
     @JoinColumn({ name: "error_detail" })
     error_detail: ErrorDetail;
 
-    @ManyToOne(() => Loom, e => e.demands, {
-        onDelete: "CASCADE",
-        eager: true,
-    })
-    @JoinColumn({ name: "loom" })
-    loom: Loom;
+    @Column()
+    loom: string;
 
 }
 

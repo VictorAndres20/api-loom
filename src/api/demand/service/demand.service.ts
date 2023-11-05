@@ -47,9 +47,7 @@ export class DemandService extends BasicCrudService<Demand, string, DemandDTO>{
         let error_detail = new ErrorDetail();
         error_detail.cod = dto.error_detail;
         entity.error_detail = error_detail;
-        let loom = new Loom();
-        loom.uuid = dto.loom;
-        entity.loom = loom;
+        entity.loom = dto.loom;
         return entity;
     }
 
@@ -81,9 +79,7 @@ export class DemandService extends BasicCrudService<Demand, string, DemandDTO>{
         let error_detail = new ErrorDetail();
         error_detail.cod = dto.error_detail;
         entity.error_detail = dto.error_detail ? error_detail : entity.error_detail;
-        let loom = new Loom();
-        loom.uuid = dto.loom;
-        entity.loom = dto.loom ? loom : entity.loom;
+        entity.loom = dto.loom ? dto.loom : entity.loom;
         return entity;
     }
 

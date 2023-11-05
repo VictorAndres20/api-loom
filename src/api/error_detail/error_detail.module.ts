@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ErrorDetail } from './entity/error_detail.entity';
 import { ErrorDetailService } from './service/error_detail.service';
 import { ErrorDetailController } from './controller/error_detail.controller';
+import { ErrorDetailBusiness } from './service/error_detail.business';
 
 @Module({
     imports: [
@@ -12,10 +13,12 @@ import { ErrorDetailController } from './controller/error_detail.controller';
         ErrorDetailController,
     ],
     providers: [
-        ErrorDetailService,        
+        ErrorDetailService, 
+        ErrorDetailBusiness,       
     ],
     exports: [
         ErrorDetailService,
+        ErrorDetailBusiness,
     ],
 })
 export class ErrorDetailModule{}
