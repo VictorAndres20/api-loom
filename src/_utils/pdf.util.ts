@@ -101,7 +101,9 @@ export const writeDemand = (doc: typeof PDFDocument, posY: number, data: Demand)
     writeTitle(doc, 'CINTALAST', (totalDocWith / 2) - 90, posY);
     posY += posYAddition;
     writeTitle(doc, 'SOLICITUD EN TELARES', startPosXPage + 80, posY);
-    posY += posYAddition *2;
+    posY += posYAddition;
+    writeNormal(doc, `${data.date_created?.getFullYear()}-${data.date_created?.getMonth()}-${data.date_created?.getDate()}  ${data.date_created?.getHours()}-${data.date_created?.getMinutes()}-${data.date_created?.getMilliseconds()}`, startPosXPage, posY);
+    posY += (posYAddition * 2);
     writeTitle(doc, 'TIPO', startPosXPage, posY);
     posY += posYAddition;
     writeNormal(doc, data.error_detail?.type?.name, startPosXPage, posY);

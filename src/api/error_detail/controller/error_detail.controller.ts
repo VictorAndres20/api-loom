@@ -8,7 +8,6 @@ import { ErrorDetailBusiness } from '../service/error_detail.business';
 import { Response } from 'express';
 
 @Controller('error-detail')
-@UseGuards(AuthGuard('jwt'))
 export class ErrorDetailController extends BasicRestController<ErrorDetail, string, ErrorDetailDTO>{
 
     constructor(protected service: ErrorDetailBusiness){super();}

@@ -52,6 +52,7 @@ export class DemandBusiness extends DemandService{
         let dto = new DemandDTO();
         dto.uuid = uuid;
         dto.demand_state = state;
+        dto.date_closed = new Date();
         return await this.editOne(dto, dto.uuid);
     }
 

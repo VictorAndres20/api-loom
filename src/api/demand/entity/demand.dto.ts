@@ -3,7 +3,7 @@ export class DemandDTO {
     readonly warp: string;
     readonly weft_quantity: number;
     readonly date_created: Date;
-    readonly date_closed: Date;
+    date_closed: Date;
     readonly user_create: string;
     readonly user_close: string;
     demand_state: string;

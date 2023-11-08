@@ -9,7 +9,6 @@ import { AuthDTO } from 'src/api/auth/entity/auth.dto';
 import { Response } from 'express';
 
 @Controller('users')
-@UseGuards(AuthGuard('jwt'))
 export class UserController extends BasicRestController<User, string, UserDTO>{
 
     constructor(protected service: UserBusiness){super();}
