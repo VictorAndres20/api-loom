@@ -71,3 +71,19 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](LICENSE).
+
+## Deploy
+- [OPTIONAL] May be create tar to upload in host server
+````
+tar -cvf api-demandapp.tar --exclude='api-demandapp/db' --exclude='api-demandapp/node_modules' --exclude='api-demandapp/.git' api-demandapp/
+````
+  
+- [OPTIONAL] Create image specifying version x.x
+````
+docker build api-demandapp/ -t api_demandapp:x.x
+````
+
+- Create container
+````
+docker run --restart always --network network-demandapp --ip 172.123.0.5 --name api_demandapp -p 8001:8001 -d api_demandapp:v.v
+````

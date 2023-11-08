@@ -6,7 +6,7 @@ insert into ks.user_type(cod, name)
 values('SOLUC', 'Solucionador');
 
 insert into ks.users(name, login, "password", type)
-values('Super Administrador', 'root', '$2a$10$mbvYQ/vQPhU31y0Uy/POju44lRm/YTf2wK6HPxsBMLc7JM10aACim', 'ROOT');
+values('Super Administrador', 'telar', '$2a$10$tgR0AIw.lG3LT3/WEP.Z..ViAKw3.sxgpfVq3hJppQ5HGjhILJ9Le', 'ROOT');
 
 insert into ks.demand_state(cod, name)
 values ('PENDI', 'Pendiente');
