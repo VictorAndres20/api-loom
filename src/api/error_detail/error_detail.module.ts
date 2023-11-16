@@ -4,6 +4,7 @@ import { ErrorDetail } from './entity/error_detail.entity';
 import { ErrorDetailService } from './service/error_detail.service';
 import { ErrorDetailController } from './controller/error_detail.controller';
 import { ErrorDetailBusiness } from './service/error_detail.business';
+import { ErrorDetailResolver } from './resolver/error_detail.resolver';
 
 @Module({
     imports: [
@@ -14,7 +15,8 @@ import { ErrorDetailBusiness } from './service/error_detail.business';
     ],
     providers: [
         ErrorDetailService, 
-        ErrorDetailBusiness,       
+        ErrorDetailBusiness,  
+        ErrorDetailResolver,     
     ],
     exports: [
         ErrorDetailService,

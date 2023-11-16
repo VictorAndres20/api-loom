@@ -4,6 +4,7 @@ import { Demand } from './entity/demand.entity';
 import { DemandService } from './service/demand.service';
 import { DemandController } from './controller/demand.controller';
 import { DemandBusiness } from './service/demand.business';
+import { DemandResolver } from './resolver/demand.resolver';
 
 @Module({
     imports: [
@@ -15,6 +16,7 @@ import { DemandBusiness } from './service/demand.business';
     providers: [
         DemandService,
         DemandBusiness,
+        DemandResolver,
     ],
     exports: [
         DemandService,

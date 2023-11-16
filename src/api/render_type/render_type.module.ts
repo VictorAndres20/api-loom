@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { RenderType } from './entity/render_type.entity';
 import { RenderTypeService } from './service/render_type.service';
 import { RenderTypeController } from './controller/render_type.controller';
+import { RenderTypeResolver } from './resolver/render_type.resolver';
 
 @Module({
     imports: [
@@ -13,6 +14,7 @@ import { RenderTypeController } from './controller/render_type.controller';
     ],
     providers: [
         RenderTypeService,
+        RenderTypeResolver,
     ],
     exports: [
         RenderTypeService,

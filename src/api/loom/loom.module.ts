@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Loom } from './entity/loom.entity';
 import { LoomService } from './service/loom.service';
 import { LoomController } from './controller/loom.controller';
+import { LoomResolver } from './resolver/loom.resolver';
 
 @Module({
     imports: [
@@ -13,6 +14,7 @@ import { LoomController } from './controller/loom.controller';
     ],
     providers: [
         LoomService,
+        LoomResolver,
     ],
     exports: [
         LoomService,

@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ErrorType } from './entity/error_type.entity';
 import { ErrorTypeService } from './service/error_type.service';
 import { ErrorTypeController } from './controller/error_type.controller';
+import { ErrorTypeResolver } from './resolver/error_type.resolver';
 
 @Module({
     imports: [
@@ -13,6 +14,7 @@ import { ErrorTypeController } from './controller/error_type.controller';
     ],
     providers: [
         ErrorTypeService,
+        ErrorTypeResolver,
     ],
     exports: [
         ErrorTypeService,

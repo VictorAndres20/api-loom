@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { DemandState } from './entity/demand_state.entity';
 import { DemandStateService } from './service/demand_state.service';
 import { DemandStateController } from './controller/demand_state.controller';
+import { DemandStateResolver } from './resolver/demand_state.resolver';
 
 @Module({
     imports: [
@@ -13,6 +14,7 @@ import { DemandStateController } from './controller/demand_state.controller';
     ],
     providers: [
         DemandStateService,
+        DemandStateResolver,
     ],
     exports: [
         DemandStateService,
