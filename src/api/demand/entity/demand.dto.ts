@@ -1,13 +1,36 @@
+import { Field, InputType, Int } from "@nestjs/graphql";
+
+@InputType()
 export class DemandDTO {
+
+    @Field({ nullable: true })
     uuid: string;
+
+    @Field({ nullable: true })
     readonly warp: string;
+    
+    @Field(type => Int, { nullable: true })
     readonly weft_quantity: number;
+    
+    @Field({ nullable: true })
     readonly date_created: Date;
+    
+    @Field({ nullable: true })
     date_closed: Date;
+    
+    @Field()
     readonly user_create: string;
+    
+    @Field({ nullable: true })
     readonly user_close: string;
+    
+    @Field()
     demand_state: string;
+    
+    @Field()
     readonly error_detail: string;
+    
+    @Field()
     readonly loom: string;
 
     bytes: string;

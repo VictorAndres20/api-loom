@@ -2,6 +2,48 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type DemandState {
+  cod: String!
+  name: String!
+}
+
+type RenderType {
+  cod: String!
+  name: String!
+}
+
+type ErrorType {
+  cod: String!
+  name: String!
+  render_type: RenderType!
+  renderType: RenderType!
+}
+
+type ErrorDetail {
+  cod: String!
+  name: String!
+  type: ErrorType!
+  errorType: ErrorType!
+}
+
+type Demand {
+  uuid: String!
+  warp: String
+  weft_quantity: Int!
+  date_created: DateTime!
+  date_closed: DateTime!
+  user_create: User!
+  user_close: User!
+  demand_state: DemandState!
+  error_detail: ErrorDetail!
+  errorDetail: ErrorDetail!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
 type User {
   uuid: String!
   name: String!
@@ -16,16 +58,43 @@ type UserType {
   name: String!
 }
 
+type Loom {
+  uuid: String!
+  number: String!
+}
+
 type Query {
   userTypeAll: [UserType!]!
   userTypeById(id: String!): UserType!
   userAll: [User!]!
   userById(id: String!): User!
+  errorDetailAll: [ErrorDetail!]!
+  errorDetailById(id: String!): ErrorDetail!
+  demandAll: [Demand!]!
+  demandById(id: String!): Demand!
+  userrenderTypeAll: [RenderType!]!
+  userrenderTypeById(id: String!): RenderType!
+  errorTypeAll: [ErrorType!]!
+  errorTypeById(id: String!): ErrorType!
+  loomAll: [Loom!]!
+  loomById(id: String!): Loom!
 }
 
 type Mutation {
   userTypeCreateOne(createInput: UserTypeDTO!): UserType!
+  userTypeUpdateOne(id: String!, updateInput: UserTypeDTO!): UserType!
   userCreateOne(createInput: UserDTO!): User!
+  userUpdateOne(id: String!, updateInput: UserDTO!): User!
+  errorDetailCreateOne(createInput: ErrorDetailDTO!): ErrorDetail!
+  errorDetailUpdateOne(id: String!, updateInput: ErrorDetailDTO!): ErrorDetail!
+  demandCreateOne(createInput: DemandDTO!): Demand!
+  demandUpdateOne(id: String!, updateInput: DemandDTO!): Demand!
+  userrenderTypeCreateOne(createInput: RenderTypeDTO!): RenderType!
+  userrenderTypeUpdateOne(id: String!, updateInput: RenderTypeDTO!): RenderType!
+  errorTypeCreateOne(createInput: ErrorTypeDTO!): ErrorType!
+  errorTypeUpdateOne(id: String!, updateInput: ErrorTypeDTO!): ErrorType!
+  loomCreateOne(createInput: LoomDTO!): Loom!
+  loomUpdateOne(id: String!, updateInput: LoomDTO!): Loom!
 }
 
 input UserTypeDTO {
@@ -40,4 +109,39 @@ input UserDTO {
   password: String!
   state: Float!
   type: String!
+}
+
+input ErrorDetailDTO {
+  cod: String!
+  name: String!
+  type: String!
+}
+
+input DemandDTO {
+  uuid: String
+  warp: String
+  weft_quantity: Int
+  date_created: DateTime
+  date_closed: DateTime
+  user_create: String!
+  user_close: String
+  demand_state: String!
+  error_detail: String!
+  loom: String!
+}
+
+input RenderTypeDTO {
+  cod: String!
+  name: String!
+}
+
+input ErrorTypeDTO {
+  cod: String!
+  name: String!
+  render_type: String!
+}
+
+input LoomDTO {
+  uuid: String
+  number: String!
 }

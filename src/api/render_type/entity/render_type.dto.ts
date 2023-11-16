@@ -1,5 +1,12 @@
+import { Field, InputType } from "@nestjs/graphql";
+
+@InputType()
 export class RenderTypeDTO {
+    
+    @Field()
     readonly cod: string;
+
+    @Field()
     readonly name: string;
 }
 

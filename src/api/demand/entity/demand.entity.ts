@@ -3,23 +3,31 @@ import { User } from 'src/api/users/entity/users.entity'
 import { DemandState } from 'src/api/demand_state/entity/demand_state.entity'
 import { ErrorDetail } from 'src/api/error_detail/entity/error_detail.entity'
 import { Loom } from 'src/api/loom/entity/loom.entity'
+import { Field, Int, ObjectType } from '@nestjs/graphql';
+import { type } from 'os';
 
 @Entity({name:'demand'})
+@ObjectType()
 export class Demand{
 
     @PrimaryGeneratedColumn()
+    @Field()
     uuid: string;
 
     @Column()
+    @Field({ nullable: true })
     warp: string;
 
-    @Column()
+    @Column({ nullable: true })
+    @Field(type => Int)
     weft_quantity: number;
 
     @Column()
+    @Field()
     date_created: Date;
 
     @Column()
+    @Field()
     date_closed: Date;
 
     @ManyToOne(() => User, e => e.demands_created, {
@@ -27,6 +35,7 @@ export class Demand{
         eager: true,
     })
     @JoinColumn({ name: "user_create" })
+    @Field(type => User)
     user_create: User;
 
     @ManyToOne(() => User, e => e.demands_closed, {
@@ -34,6 +43,7 @@ export class Demand{
         eager: true,
     })
     @JoinColumn({ name: "user_close" })
+    @Field(type => User)
     user_close: User;
 
     @ManyToOne(() => DemandState, e => e.demands, {
@@ -41,6 +51,7 @@ export class Demand{
         eager: true,
     })
     @JoinColumn({ name: "demand_state" })
+    @Field(type => DemandState)
     demand_state: DemandState;
 
     @ManyToOne(() => ErrorDetail, e => e.demands, {
@@ -48,6 +59,7 @@ export class Demand{
         eager: true,
     })
     @JoinColumn({ name: "error_detail" })
+    @Field(type => ErrorDetail)
     error_detail: ErrorDetail;
 
     @Column()

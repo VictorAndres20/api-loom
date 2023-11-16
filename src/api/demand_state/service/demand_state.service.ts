@@ -27,6 +27,7 @@ export class DemandStateService extends BasicCrudService<DemandState, string, De
 
         //Assign data
         let entity = new DemandState();
+        entity.cod = dto.cod;
         entity.name = dto.name;
         return entity;
     }

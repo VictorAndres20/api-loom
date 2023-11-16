@@ -28,6 +28,7 @@ export class ErrorDetailService extends BasicCrudService<ErrorDetail, string, Er
 
         //Assign data
         let entity = new ErrorDetail();
+        entity.cod = dto.cod;
         entity.name = dto.name;
         let error_type = new ErrorType();
         error_type.cod = dto.type;

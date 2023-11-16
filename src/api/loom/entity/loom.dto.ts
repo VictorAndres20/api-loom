@@ -1,5 +1,12 @@
+import { Field, InputType } from "@nestjs/graphql";
+
+@InputType()
 export class LoomDTO {
+
+    @Field({ nullable: true })
     readonly uuid: string;
+
+    @Field()
     readonly number: string;
 }
 

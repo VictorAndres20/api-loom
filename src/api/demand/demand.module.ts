@@ -5,10 +5,12 @@ import { DemandService } from './service/demand.service';
 import { DemandController } from './controller/demand.controller';
 import { DemandBusiness } from './service/demand.business';
 import { DemandResolver } from './resolver/demand.resolver';
+import { ErrorDetailModule } from '../error_detail/error_detail.module';
 
 @Module({
     imports: [
         TypeOrmModule.forFeature([Demand]),
+        ErrorDetailModule,
     ],
     controllers: [
         DemandController,

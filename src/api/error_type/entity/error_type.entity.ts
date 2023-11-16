@@ -1,14 +1,18 @@
 import { Entity, Column, PrimaryGeneratedColumn, PrimaryColumn, OneToMany, ManyToOne, JoinColumn } from 'typeorm';
 import { RenderType } from 'src/api/render_type/entity/render_type.entity'
 import { ErrorDetail } from 'src/api/error_detail/entity/error_detail.entity'
+import { Field, ObjectType } from '@nestjs/graphql';
 
 @Entity({name:'error_type'})
+@ObjectType()
 export class ErrorType{
 
     @PrimaryColumn()
+    @Field()
     cod: string;
 
     @Column()
+    @Field()
     name: string;
 
     @ManyToOne(() => RenderType, e => e.types, {
@@ -16,6 +20,7 @@ export class ErrorType{
         eager: true,
     })
     @JoinColumn({ name: "render_type" })
+    @Field( type => RenderType)
     render_type: RenderType;
 
     @OneToMany(() => ErrorDetail, e => e.type)

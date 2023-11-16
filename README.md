@@ -60,14 +60,37 @@ http://localhost:8001/graphql
 
 ### Here some queries examples
 
+**Find all loom demands errors**
+```graphql
+{
+  demandAll {
+    uuid,
+    warp,
+    weft_quantity,
+    date_created,
+    errorDetail {
+      name,
+      errorType {
+        name,
+        renderType {
+          cod,
+          name
+        }
+      }
+    }
+  }
+}
+```
+
 **Find users with user type**
 
-```
+```graphql
 {
   userAll {
     name,
     userType {
-      cod
+      cod,
+      name
     }
   }
 }
@@ -105,6 +128,22 @@ mutation{
   }) {
     name,
     cod,
+  }
+}
+```
+
+**Create loom demand error**
+```graphql
+mutation {
+  demandCreateOne(createInput: {
+    weft_quantity: 34,
+    user_create: "71b96399-8ef0-4474-afde-4c9670bcbe3a",
+    user_close: "71b96399-8ef0-4474-afde-4c9670bcbe3a",
+    demand_state: "PENDI",
+    error_detail: "WE_1.",
+    loom: "303"
+  }) {
+    uuid
   }
 }
 ```

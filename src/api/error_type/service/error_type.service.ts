@@ -28,6 +28,7 @@ export class ErrorTypeService extends BasicCrudService<ErrorType, string, ErrorT
 
         //Assign data
         let entity = new ErrorType();
+        entity.cod = dto.cod;
         entity.name = dto.name;
         let render_type = new RenderType();
         render_type.cod = dto.render_type;

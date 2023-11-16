@@ -27,6 +27,7 @@ export class RenderTypeService extends BasicCrudService<RenderType, string, Rend
 
         //Assign data
         let entity = new RenderType();
+        entity.cod = dto.cod;
         entity.name = dto.name;
         return entity;
     }

@@ -1,6 +1,15 @@
+import { Field, InputType } from "@nestjs/graphql";
+
+@InputType()
 export class ErrorDetailDTO {
+    
+    @Field()
     readonly cod: string;
+    
+    @Field()
     readonly name: string;
+    
+    @Field()
     readonly type: string;
 }
 

@@ -1,13 +1,17 @@
 import { Entity, Column, PrimaryGeneratedColumn, PrimaryColumn, OneToMany, ManyToOne, JoinColumn } from 'typeorm';
 import { Demand } from 'src/api/demand/entity/demand.entity'
+import { Field, ObjectType } from '@nestjs/graphql';
 
 @Entity({name:'loom'})
+@ObjectType()
 export class Loom{
 
     @PrimaryGeneratedColumn()
+    @Field()
     uuid: string;
 
     @Column()
+    @Field()
     number: string;
 
     @OneToMany(() => Demand, e => e.loom)
