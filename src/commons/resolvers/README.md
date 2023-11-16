@@ -1,5 +1,5 @@
 # Implementation of this function to build Absract CRUD Resolver (GraphQL)
-```
+```typescript
 // imports...
 
 @Resolver(of => YourEntity)

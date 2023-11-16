@@ -155,10 +155,10 @@ Using generic Resolver function to implement basic CRUD asbtract resolver
 
 /src/commons/resolvers/
 
-```
+```typescript
 
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
-import { BasicCrudService } from '../services/crud.service';
+import { BasicCrudService } from '../services/crud.service'; // Abstract service /src/commons/services
 
 export function createBasicCrudResolver<T, ID, D>(
         entityType: new () => T,
@@ -199,7 +199,7 @@ export function createBasicCrudResolver<T, ID, D>(
 
 **Implementation**
 
-```
+```typescript
 // imports...
 
 @Resolver(of => YourEntity)
@@ -210,4 +210,58 @@ export class YourEntityResolver extends createBasicCrudResolver(YourEntity, IdTy
     }
 
 }
+```
+
+## Consume with ReactJS
+- Install dependencies
+```bash
+npm install @apollo/client graphql
+```
+
+- Use AplloProvider in /src/index.js
+```js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { ApolloProvider } from '@apollo/client';
+import { ApolloClient, InMemoryCache } from '@apollo/client';
+import App from './App';
+
+const client = new ApolloClient({
+  uri: 'GRAPHQL_API_ENDPOINT',
+  cache: new InMemoryCache(),
+});
+
+ReactDOM.render(
+  <ApolloProvider client={client}>
+    <App />
+  </ApolloProvider>,
+  document.getElementById('root')
+);
+```
+
+- Create Component with useQuery hook from GraphQL to fetch data
+```js
+import React from 'react';
+import { useQuery, gql } from '@apollo/client';
+
+const GRAPHQL_DATA = gql`
+  query {
+    // Your GraphQL query here
+  }
+`;
+
+const MyComponent = () => {
+  const { loading, error, data } = useQuery(GRAPHQL_DATA);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
+
+  return (
+    <div>
+      {/* Render your data here */}
+    </div>
+  );
+};
+
+export default MyComponent;
 ```
