@@ -6,11 +6,14 @@ import { UserController } from './controller/users.controller';
 import { AuthModule } from '../auth/auth.module';
 import { UserBusiness } from './service/users.business';
 import { LoginController } from './controller/login.controller';
+import { UserResolver } from './resolver/user.resolver';
+import { UserTypeModule } from '../user_type/user_type.module';
 
 @Module({
     imports: [
         TypeOrmModule.forFeature([User]),
         AuthModule,
+        UserTypeModule,
     ],
     controllers: [
         UserController,
@@ -19,6 +22,7 @@ import { LoginController } from './controller/login.controller';
     providers: [
         UserService,
         UserBusiness,
+        UserResolver,
     ],
     exports: [
         UserService,

@@ -1,23 +1,29 @@
 import { Entity, Column, PrimaryGeneratedColumn, PrimaryColumn, OneToMany, ManyToOne, JoinColumn } from 'typeorm';
 import { UserType } from 'src/api/user_type/entity/user_type.entity'
 import { Demand } from 'src/api/demand/entity/demand.entity'
+import { Field, ObjectType } from '@nestjs/graphql';
 
 @Entity({name:'users'})
+@ObjectType()
 export class User{
 
     @PrimaryGeneratedColumn()
+    @Field()
     uuid: string;
 
     @Column()
+    @Field()
     name: string;
 
     @Column()
+    @Field()
     login: string;
 
     @Column()
     password: string;
 
     @Column()
+    @Field()
     state: number;
 
     @ManyToOne(() => UserType, e => e.users, {
@@ -25,6 +31,7 @@ export class User{
         eager: true,
     })
     @JoinColumn({ name: "type" })
+    @Field(type => UserType)
     type: UserType;
 
     @OneToMany(() => Demand, e => e.user_create)

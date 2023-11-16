@@ -1,0 +1,11 @@
+SERVER_PORT=8001
+JWT_SECRET=4425c016ba2b445cb29af8f1465b121c533572c687c21db90fcd7b04a5e8be13
+JWT_LICENSE=4425g016ba2b445cb29af8p1465b121c533522c687c21db90fcd8b04a5e8be27
+
+# ------------ Database variables ------------
+DB_HOST=localhost
+DB_PORT=5432
+DB_USER=postgres
+DB_PASS=secret
+DB_NAME=demandapp
+DB_SCHEMA=ks

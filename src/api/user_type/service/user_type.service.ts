@@ -27,6 +27,7 @@ export class UserTypeService extends BasicCrudService<UserType, string, UserType
 
         //Assign data
         let entity = new UserType();
+        entity.cod = dto.cod;
         entity.name = dto.name;
         return entity;
     }

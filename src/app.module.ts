@@ -6,6 +6,9 @@ import 'dotenv/config';
 
 //API Module
 import { ApiModule } from './api/api.module';
+import { GraphQLModule } from '@nestjs/graphql';
+import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
+import { join } from 'path';
 
 //You can use dotenv
 @Module({
@@ -21,6 +24,11 @@ import { ApiModule } from './api/api.module';
       synchronize: false,
       logging: true, // TODO in production put it false
       autoLoadEntities: true,
+    }),
+    GraphQLModule.forRoot<ApolloDriverConfig>({
+      driver: ApolloDriver,
+      autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
+      playground: true, // stop playground if you need
     }),
     ApiModule,
   ],

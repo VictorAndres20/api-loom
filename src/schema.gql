@@ -1,0 +1,43 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type User {
+  uuid: String!
+  name: String!
+  login: String!
+  state: Float!
+  type: UserType!
+  userType: UserType!
+}
+
+type UserType {
+  cod: String!
+  name: String!
+}
+
+type Query {
+  userTypeAll: [UserType!]!
+  userTypeById(id: String!): UserType!
+  userAll: [User!]!
+  userById(id: String!): User!
+}
+
+type Mutation {
+  userTypeCreateOne(createInput: UserTypeDTO!): UserType!
+  userCreateOne(createInput: UserDTO!): User!
+}
+
+input UserTypeDTO {
+  cod: String!
+  name: String!
+}
+
+input UserDTO {
+  uuid: String!
+  name: String!
+  login: String!
+  password: String!
+  state: Float!
+  type: String!
+}

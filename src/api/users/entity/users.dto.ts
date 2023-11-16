@@ -1,9 +1,24 @@
+import { Field, InputType } from "@nestjs/graphql";
+
+@InputType()
 export class UserDTO {
+
+    @Field()
     readonly uuid: string;
+    
+    @Field()
     readonly name: string;
+    
+    @Field()
     readonly login: string;
+    
+    @Field()
     readonly password: string;
+    
+    @Field()
     readonly state: number;
+    
+    @Field()
     readonly type: string;
 }
 
