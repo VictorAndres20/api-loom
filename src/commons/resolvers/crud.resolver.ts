@@ -2,7 +2,7 @@
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { BasicCrudService } from '../services/crud.service';
 
-export function createBasicQueryResolver<T, ID, D>(
+export function createBasicCrudResolver<T, ID, D>(
         entityType: new () => T,
         idType: new () => ID,
         inputType: new () => D,
