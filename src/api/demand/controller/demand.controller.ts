@@ -12,6 +12,15 @@ export class DemandController extends BasicRestController<Demand, string, Demand
 
     constructor(protected service: DemandBusiness){super();}
 
+    @Get('tz')
+    async tz(@Res() res: Response ): Promise<void> {
+        try{
+            res.status(HttpStatus.OK).json(new HttpResponse<string>().setData(new Date().toString()).build(true));
+        } catch(err){
+            res.status(HttpStatus.INTERNAL_SERVER_ERROR).json(new HttpResponse<string>().setError(err.message).build(false));
+        }
+    }
+
     @Get('all/pending')
     async findAllPending(@Res() res: Response ): Promise<void> {
         try{

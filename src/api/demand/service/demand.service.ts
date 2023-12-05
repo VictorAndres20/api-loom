@@ -33,7 +33,7 @@ export class DemandService extends BasicCrudService<Demand, string, DemandDTO>{
         let entity = new Demand();
         entity.warp = dto.warp;
         entity.weft_quantity = dto.weft_quantity;
-        entity.date_created = dto.date_created;
+        entity.date_created = new Date();
         entity.date_closed = dto.date_closed;
         let usersc = new User();
         usersc.uuid = dto.user_create;
