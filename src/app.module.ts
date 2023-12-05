@@ -22,7 +22,7 @@ import { join } from 'path';
       database: process.env.DB_NAME,
       schema: process.env.DB_SCHEMA, //Uncomment it if you use Schema
       synchronize: false,
-      logging: true, // TODO in production put it false
+      logging: false, // TODO in production put it false
       autoLoadEntities: true,
     }),
     GraphQLModule.forRoot<ApolloDriverConfig>({
