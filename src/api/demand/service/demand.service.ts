@@ -7,7 +7,6 @@ import { DemandDTO } from '../entity/demand.dto';
 import { User } from 'src/api/users/entity/users.entity'
 import { DemandState } from 'src/api/demand_state/entity/demand_state.entity'
 import { ErrorDetail } from 'src/api/error_detail/entity/error_detail.entity'
-import { Loom } from 'src/api/loom/entity/loom.entity'
 
 @Injectable()
 export class DemandService extends BasicCrudService<Demand, string, DemandDTO>{
